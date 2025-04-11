@@ -13,7 +13,7 @@ export default function Home() {
             .sfdی
           </li>
           <li className="tracking-[-.01em]">
-            Save and see your changes instantly.alksdjf
+            Save and see your changes instantly.alksdjfkasdf 
           </li>
         </ol>
 
