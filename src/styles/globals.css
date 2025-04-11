@@ -92,6 +92,10 @@
   --backdrop-color: var(--backdrop-color);
 }
 
+.container {
+  @apply mx-auto px-4;
+}
+
 .rti--container {
   background-color: (var(--color-secondary-100));
   --rti-radius: 0.375rem;
