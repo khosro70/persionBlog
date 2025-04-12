@@ -4,7 +4,10 @@ import vazirFont from "@/constants/LocalFont";
 import Header from "@/components/header/Header";
 
 export const metadata: Metadata = {
-  title: "پرشین بلاگ",
+  title: {
+    template: "پرشین بلاگ | %s",
+    default: "پرشین بلاگ",
+  },
   description: "وبلاگ فارسی پرشین بلاگ",
 };
 

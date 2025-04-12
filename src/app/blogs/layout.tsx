@@ -1,10 +1,5 @@
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "بلاگ ها",
-  description: "",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
