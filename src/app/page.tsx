@@ -1,3 +1,3 @@
 export default function Home() {
-  return <h1 className="">start app</h1>;
+  return <h1 className="">startss app</h1>;
 }
