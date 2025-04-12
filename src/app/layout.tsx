@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "@/styles/globals.css";
 import vazirFont from "@/constants/LocalFont";
 import Header from "@/components/header/Header";
+import ThemeProvider from "@/theme/ThemeProvider";
 
 export const metadata: Metadata = {
   title: {
@@ -17,10 +18,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fa" dir="rtl" className="light">
+    <html lang="fa" dir="rtl" className="light" suppressHydrationWarning>
       <body className={`${vazirFont.variable} min-h-screen`}>
-        <Header />
-        <div className="container xl:max-w-screen-xl">{children}</div>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header />
+          <div className="container xl:max-w-screen-xl">{children}</div>
+        </ThemeProvider>
       </body>
     </html>
   );

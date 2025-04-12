@@ -1,6 +1,7 @@
 "use client";
 
 import NavLink from "./NavLink";
+import ThemeToggle from "../../theme/theme-toggle";
 
 type NavLinkType = {
   id: number;
@@ -39,13 +40,18 @@ function Header() {
               </li>
             ))}
           </div>
-          <li>
-            {user ? (
-              <NavLink path="/profile">پروفایل</NavLink>
-            ) : (
-              <NavLink path="/signin">ورود</NavLink>
-            )}
-          </li>
+          <div className="flex gap-6 justify-center items-center">
+            <li>
+              {user ? (
+                <NavLink path="/profile">پروفایل</NavLink>
+              ) : (
+                <NavLink path="/signin">ورود</NavLink>
+              )}
+            </li>
+            <li>
+              <ThemeToggle />
+            </li>
+          </div>
         </ul>
       </nav>
     </header>
