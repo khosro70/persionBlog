@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import CategoryLists from "./_components/CategoryLists";
 
 export default function RootLayout({
   children,
@@ -13,10 +13,7 @@ export default function RootLayout({
       </div>
       <div className="grid grid-cols-12 gap-8">
         <div className="col-span-12 space-y-4 lg:col-span-4 xl:col-span-3 text-secondary-500">
-          {/* <Suspense fallback={<Spinner />}>
-            <CategoryList />
-          </Suspense> */}
-          لیست دسته بندی ها
+          <CategoryLists />
         </div>
         <div className="col-span-12 lg:col-span-8 xl:col-span-9">
           {children}
