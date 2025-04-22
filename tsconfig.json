@@ -30,7 +30,9 @@
       "@/theme/*": ["theme/*"],
       "@/types/*": ["types/*"],
       "@/utils/*": ["utils/*"],
-      "@/services/*": ["services/*"]
+      "@/services/*": ["services/*"],
+      "@/actions/*": ["actions/*"],
+      "@/validations/*": ["validations/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

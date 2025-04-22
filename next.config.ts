@@ -11,6 +11,12 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  logging: {
+    // درخواست های فرستاده شده توی هر صفحه رو می ده
+    fetches: {
+      fullUrl: true,
+    },
+  },
 };
 
 export default nextConfig;

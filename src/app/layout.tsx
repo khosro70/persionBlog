@@ -3,6 +3,8 @@ import "@/styles/globals.css";
 import vazirFont from "@/constants/LocalFont";
 import Header from "@/components/header/Header";
 import ThemeProvider from "@/theme/ThemeProvider";
+import { Toaster } from "react-hot-toast";
+import AuthContextProvider from "@/context/AuthContext";
 
 export const metadata: Metadata = {
   title: {
@@ -20,15 +22,18 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl" className="light" suppressHydrationWarning>
       <body className={`${vazirFont.variable} min-h-screen`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Header />
-          <div className="container xl:max-w-screen-xl">{children}</div>
-        </ThemeProvider>
+        <AuthContextProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Header />
+            <div className="container xl:max-w-screen-xl">{children}</div>
+          </ThemeProvider>
+          <Toaster />
+        </AuthContextProvider>
       </body>
     </html>
   );

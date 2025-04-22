@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+// /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 // import toast from "react-hot-toast";
 import {
@@ -14,11 +14,11 @@ import {
 // import { bookMarkPostApi, likePostApi } from "services/postServices";
 import { PostInteractionType } from "types/blogs";
 import { toPersianDigits } from "utils/numberFormatter";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import ButtonIcon from "@/components/ButtonIcon";
 
 const PostInteraction: React.FC<PostInteractionType> = ({ post }) => {
-  const router = useRouter();
+  // const router = useRouter();
 
   // const likeHandler = async (postId: string) => {
   //   try {

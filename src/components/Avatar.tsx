@@ -6,7 +6,7 @@ const Avatar: React.FC<AvatarComponentProps> = ({
   src,
   width = 24,
   height = 24,
-  alt,
+  // alt,
 }) => {
   return (
     <Image

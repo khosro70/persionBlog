@@ -1,28 +1,40 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import React from "react";
-import type { Metadata, ResolvingMetadata } from "next";
-import { getPostBySlug } from "@/services/postServices";
+import type { Metadata } from "next";
+import { getPostBySlug, getPosts } from "@/services/postServices";
+import { PostType } from "@/types/blogs";
+
+// برای isr کردن صفحات
+export const revalidate = 60;
 
 type Props = {
-  params: Promise<{ postSlug: string }>;
+  params: Promise<{ slug: string }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
-export async function generateMetadata(
-  { params, searchParams }: Props,
-  parent: ResolvingMetadata
-): Promise<Metadata> {
-  const { postSlug } = await params;
-  const post = await getPostBySlug(postSlug);
+export async function generateMetadata({
+  params,
+}: Props): // parent: ResolvingMetadata
+Promise<Metadata> {
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
   return {
     title: post?.title,
   };
 }
 
+export async function generateStaticParams() {
+  const posts = await getPosts();
+
+  return posts.map((post: PostType) => ({
+    slug: post.slug,
+  }));
+}
+
 async function SinglePost({ params }: Props) {
-  const { postSlug } = await params;
-  const post = await getPostBySlug(postSlug);
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
 
   if (!post) notFound();
 

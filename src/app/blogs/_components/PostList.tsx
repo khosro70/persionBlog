@@ -5,14 +5,12 @@ import Link from "next/link";
 import Author from "./Author";
 import { ClockIcon } from "@heroicons/react/24/outline";
 import PostInteraction from "./PostInteraction";
+import { getPosts } from "@/services/postServices";
 
 async function PostList() {
   // await new Promise<void>((res) => setTimeout(() => res(), 3000));
-  const res = await fetch(`${process.env.NEXT_BUBLIC_BASE_URL}/post/list`);
-  const {
-    data: { posts },
-  } = await res.json();
-  //   console.log(posts);
+
+  const posts = await getPosts();
   return (
     <div className="grid grid-cols-12 gap-8">
       {posts?.map((post: PostType) => (
