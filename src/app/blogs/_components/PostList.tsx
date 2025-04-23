@@ -11,6 +11,7 @@ import { setCookieOnReq } from "@/utils/setCookieOnRequest";
 
 async function PostList() {
   // await new Promise<void>((res) => setTimeout(() => res(), 3000));
+  // await new Promise<void>((res) => setTimeout(() => res(), 3000));
   const cookieStore = await cookies();
   const options = setCookieOnReq(cookieStore);
   const posts = await getPosts(options);
