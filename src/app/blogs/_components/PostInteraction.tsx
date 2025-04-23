@@ -41,7 +41,7 @@ const PostInteraction: React.FC<PostInteractionType> = ({ post }) => {
   };
 
   return (
-    <div className="flex items-center gap-x-4">
+    <div className="flex items-center gap-x-4 d">
       <ButtonIcon variant="secondary">
         <ChatBubbleOvalLeftEllipsisIcon />
         <span>{toPersianDigits(post?.commentsCount)}</span>
