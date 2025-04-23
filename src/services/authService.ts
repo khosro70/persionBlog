@@ -1,6 +1,5 @@
-import { SingUpFormValuesType } from "@/views/SignUpClientSide";
 import http from "./httpService";
-import { SingInFormValuesType } from "@/types/auth";
+import { SingInFormValuesType, SingUpFormValuesType } from "@/types/auth";
 
 export async function signupApi(data: SingUpFormValuesType) {
   return http.post("/user/signup", data).then(({ data }) => data.data);
@@ -11,5 +10,5 @@ export async function signinApi(data: SingInFormValuesType) {
 }
 
 export async function getUserApi() {
-  return http.post("/user/profile").then(({ data }) => data.data);
+  return http.get("/user/profile").then(({ data }) => data.data);
 }

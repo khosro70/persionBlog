@@ -1,6 +1,6 @@
 // /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-// import toast from "react-hot-toast";
+import toast from "react-hot-toast";
 import {
   BookmarkIcon,
   ChatBubbleOvalLeftEllipsisIcon,
@@ -11,34 +11,34 @@ import {
   BookmarkIcon as SolidBookMarkIcon,
   HeartIcon as SolidHeartIcon,
 } from "@heroicons/react/24/solid";
-// import { bookMarkPostApi, likePostApi } from "services/postServices";
+import { bookMarkPostApi, likePostApi } from "services/postServices";
 import { PostInteractionType } from "types/blogs";
 import { toPersianDigits } from "utils/numberFormatter";
-// import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import ButtonIcon from "@/components/ButtonIcon";
 
 const PostInteraction: React.FC<PostInteractionType> = ({ post }) => {
-  // const router = useRouter();
+  const router = useRouter();
 
-  // const likeHandler = async (postId: string) => {
-  //   try {
-  //     const { message } = await likePostApi(postId);
-  //     toast.success(message);
-  //     router.refresh();
-  //   } catch (error: any) {
-  //     toast.error(error?.response?.data?.message);
-  //   }
-  // };
+  const likeHandler = async (postId: string) => {
+    try {
+      const { message } = await likePostApi(postId);
+      toast.success(message);
+      router.refresh();
+    } catch (error: any) {
+      toast.error(error?.response?.data?.message);
+    }
+  };
 
-  // const bookMarkHandler = async (postId: string) => {
-  //   try {
-  //     const { message } = await bookMarkPostApi(postId);
-  //     toast.success(message);
-  //     router.refresh();
-  //   } catch (error: any) {
-  //     toast.error(error?.response?.data?.message);
-  //   }
-  // };
+  const bookMarkHandler = async (postId: string) => {
+    try {
+      const { message } = await bookMarkPostApi(postId);
+      toast.success(message);
+      router.refresh();
+    } catch (error: any) {
+      toast.error(error?.response?.data?.message);
+    }
+  };
 
   return (
     <div className="flex items-center gap-x-4">
@@ -46,12 +46,10 @@ const PostInteraction: React.FC<PostInteractionType> = ({ post }) => {
         <ChatBubbleOvalLeftEllipsisIcon />
         <span>{toPersianDigits(post?.commentsCount)}</span>
       </ButtonIcon>
-      {/* <ButtonIcon variant="red" onClick={() => likeHandler(post._id)}> */}
-      <ButtonIcon variant="red" onClick={() => console.log("first")}>
+      <ButtonIcon variant="red" onClick={() => likeHandler(post._id)}>
         {post?.isLiked ? <SolidHeartIcon /> : <HeartIcon />}
       </ButtonIcon>
-      {/* <ButtonIcon variant="primary" onClick={() => bookMarkHandler(post._id)}> */}
-      <ButtonIcon variant="primary" onClick={() => console.log("first")}>
+      <ButtonIcon variant="primary" onClick={() => bookMarkHandler(post._id)}>
         {post?.isBookmarked ? <SolidBookMarkIcon /> : <BookmarkIcon />}
       </ButtonIcon>
     </div>

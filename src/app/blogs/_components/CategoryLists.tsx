@@ -5,7 +5,7 @@ import React from "react";
 async function CategoryLists() {
   // await new Promise<void>((res) => setTimeout(() => res(), 3000));
 
-  const res = await fetch(`${process.env.NEXT_BUBLIC_BASE_URL}/category/list`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/category/list`, {
     cache: "force-cache",
   });
   const {
