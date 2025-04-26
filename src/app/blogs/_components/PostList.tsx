@@ -5,16 +5,10 @@ import Link from "next/link";
 import Author from "./Author";
 import { ClockIcon } from "@heroicons/react/24/outline";
 import PostInteraction from "./PostInteraction";
-import { getPosts } from "@/services/postServices";
-import { cookies } from "next/headers";
-import { setCookieOnReq } from "@/utils/setCookieOnRequest";
 
-async function PostList() {
+async function PostList({ posts }: { posts: PostType[] }) {
   // await new Promise<void>((res) => setTimeout(() => res(), 3000));
-  // await new Promise<void>((res) => setTimeout(() => res(), 3000));
-  const cookieStore = await cookies();
-  const options = setCookieOnReq(cookieStore);
-  const posts = await getPosts(options);
+
   return (
     <div className="grid grid-cols-12 gap-8">
       {posts?.map((post: PostType) => (

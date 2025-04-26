@@ -18,11 +18,14 @@ export async function getPostBySlug(slug: string) {
   return post;
 }
 
-export async function getPosts(options?: optionsType) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/post/list`, {
-    ...options,
-    cache: "no-store",
-  });
+export async function getPosts(queries?: string, options?: optionsType) {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/post/list?${queries}`,
+    {
+      ...options,
+      cache: "no-store",
+    }
+  );
   const {
     data: { posts },
   } = await res.json();

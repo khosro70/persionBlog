@@ -3,12 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-function CoverImage(post: PostType) {
+function CoverImage({ slug, coverImage }: { slug: string; coverImage: string }) {
   return (
-    <Link href={`/blogs/${post.slug}`}>
+    <Link href={`/blogs/${slug}`}>
       <div className="relative aspect-video rounded-md overflow-hidden mb-6">
         <Image
-          src={`http://localhost:5000/${post.coverImage}`}
+          src={`http://localhost:5000/${coverImage}`}
           className="object-cover object-center hover:scale-110 transition-all duration-300 ease-out"
           alt="postImage"
           quality={80}

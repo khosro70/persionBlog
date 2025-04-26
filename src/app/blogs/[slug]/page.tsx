@@ -4,6 +4,7 @@ import React from "react";
 import type { Metadata } from "next";
 import { getPostBySlug, getPosts } from "@/services/postServices";
 import { PostType } from "@/types/blogs";
+import RelatedPost from "../_components/RelatedPost";
 
 // برای isr کردن صفحات
 export const revalidate = 60;
@@ -55,8 +56,8 @@ async function SinglePost({ params }: Props) {
           priority
         />
       </div>
-      {/* {post.related.length > 0 && <RelatedPost posts={post.related} />}
-      <BlogComments post={post} /> */}
+      {post.related.length > 0 && <RelatedPost posts={post.related} />}
+      {/* <BlogComments post={post} /> */}
     </div>
   );
 }
